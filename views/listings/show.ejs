@@ -1,0 +1,41 @@
+<% layout("/layouts/boilerplate") %>
+<script>
+  const mapToken="<%=process.env.MAP_TOKEN%>";
+  const coordinates= <%-JSON.stringify(listing.geometry.coordinates)%>;
+</script>
+  <div class="row mt-3">
+    <div class="col-8 offset-2">
+      <h3>Listing Details :</h3>
+    </div>
+    <div class="card col-6 offset-2 show-card">
+      <img src="<%=listing.image.url%>" class="card-img-top show-img" alt="listingimg">
+      <div class="card-body">
+        <p class="card-text">
+          <b>
+            <%= listing.title %>
+          </b><br>
+          <i>Created By:<%=listing.owner.username%></i><br>
+          <%= listing.description %> <br>
+            &#8377; <%= listing.price.toLocaleString("en-IN") %> <br>
+              <%= listing.location %> <br>
+                <%= listing.country %>
+        </p>
+      </div>
+    </div>
+    <br />
+  </div>
+
+    <div class="btns">
+      <a href="/listings/<%= listing._id %>/edit" class="btn btn-danger col-1 offset-2">Edit </a>
+      <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+        <button class="btn btn-dark offset-4">Delete</button>
+      </form>
+    </div>
+    <br>
+    <div class="col-8 offset-2 mb-3">
+      <h3>where you'll be</h3>
+      <div id="map"></div>
+    </div>
+  
+  <script src="/js/map.js"></script>
+  
