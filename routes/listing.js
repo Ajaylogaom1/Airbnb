@@ -24,6 +24,10 @@ const validateListing=(req,res,next)=>{
     }
   };
 
+//home
+router.get("/",(req,res)=>{
+  res.render("/listings")
+})
 
 //Index Route
 router.get("/", wrapAsync(async (req, res) => {
