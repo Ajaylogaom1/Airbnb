@@ -24,13 +24,9 @@ const validateListing=(req,res,next)=>{
     }
   };
 
-//home
-router.get("/",(req,res)=>{
-  res.render("listings/home.ejs");
-})
 
 //Index Route
-router.get("/", wrapAsync(async (req, res) => {
+router.get("/", async (req, res) => {
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", { allListings });
   }));
