@@ -29,7 +29,7 @@ const validateListing=(req,res,next)=>{
 router.get("/", async (req, res) => {
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", { allListings });
-  }));
+  });
   
   //New Route
   router.get("/new", isLoggedIn ,(req, res) => {
