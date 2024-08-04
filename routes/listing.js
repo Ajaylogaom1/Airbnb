@@ -26,7 +26,7 @@ const validateListing=(req,res,next)=>{
 
 //home
 router.get("/",(req,res)=>{
-  res.render("/listings")
+  res.render("listings/index.ejs", { allListings });
 })
 
 //Index Route
