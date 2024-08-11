@@ -24,9 +24,7 @@ const validateListing=(req,res,next)=>{
     }
   };
 
-router.get("/", (req,res)=>{
-res.render("listings/home.ejs")
-})
+
 //Index Route
 router.get("/", async (req, res) => {
     const allListings = await Listing.find({});
